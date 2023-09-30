@@ -1,6 +1,23 @@
 ﻿@model IEnumerable<Quiz>
 
+<ul>
 @foreach (var qz in Model)
 {
-    <h1>@qz.QuizId</h1>
+     var tempId = qz.QuizId;
+    <ul>
+        <il>
+          <a>@qz.QuizId</a>
+          <ul>
+                @foreach(var q in qz.Quizquestions)
+                {
+                    if (q.QuizId == tempId)
+                    {
+                        <li>@q.Question</li>
+                    }
+                }
+          </ul>
+        </il>
+    </ul>
+    
 }
+</ul>

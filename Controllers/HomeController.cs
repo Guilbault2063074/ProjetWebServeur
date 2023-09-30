@@ -18,5 +18,16 @@ namespace Projet_Web_Serveur.Controllers
             var quizzez = context.Quizzes.ToList();
             return View(quizzez);
         }
+
+        public IActionResult AddQuiz(Question[] questionsList)
+        {
+
+            return View();
+        }
+
+        public IActionResult SeeQuiz(int QuizId)
+        {
+            return View();
+        }
     }
 }
