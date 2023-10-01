@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "P:\\Fichiers\\Repos Git\\Projet web serveur 2023\\ProjetWebServeur\\Projet_Web_Serveur.csproj": {}
+    "C:\\Users\\willi\\source\\repos\\Projet_Web_Serveur\\Projet_Web_Serveur.csproj": {}
   },
   "projects": {
-    "P:\\Fichiers\\Repos Git\\Projet web serveur 2023\\ProjetWebServeur\\Projet_Web_Serveur.csproj": {
+    "C:\\Users\\willi\\source\\repos\\Projet_Web_Serveur\\Projet_Web_Serveur.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "P:\\Fichiers\\Repos Git\\Projet web serveur 2023\\ProjetWebServeur\\Projet_Web_Serveur.csproj",
+        "projectUniqueName": "C:\\Users\\willi\\source\\repos\\Projet_Web_Serveur\\Projet_Web_Serveur.csproj",
         "projectName": "Projet_Web_Serveur",
-        "projectPath": "P:\\Fichiers\\Repos Git\\Projet web serveur 2023\\ProjetWebServeur\\Projet_Web_Serveur.csproj",
-        "packagesPath": "C:\\Users\\aprou\\.nuget\\packages\\",
-        "outputPath": "P:\\Fichiers\\Repos Git\\Projet web serveur 2023\\ProjetWebServeur\\obj\\",
+        "projectPath": "C:\\Users\\willi\\source\\repos\\Projet_Web_Serveur\\Projet_Web_Serveur.csproj",
+        "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\willi\\source\\repos\\Projet_Web_Serveur\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aprou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
