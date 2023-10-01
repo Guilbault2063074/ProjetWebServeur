@@ -105,6 +105,7 @@ namespace Projet_Web_Serveur.Controllers
         public IActionResult SeeQuiz(int quizId)
         {
             var questionQuiz = context.Quizquestions.Where(e => e.QuizId == quizId);
+            ViewBag.currentQuizId = questionQuiz.FirstOrDefault().QuizId;
             return View(questionQuiz);
         }
     }
