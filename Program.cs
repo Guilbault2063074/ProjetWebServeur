@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Projet_Web_Serveur.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ProjetWsContext>(
+options => options.UseMySql("name=ConnectionStrings:MySqlConnection",
+Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"))
+.UseLazyLoadingProxies()
+);
 
 var app = builder.Build();
 

@@ -4,22 +4,10 @@
 <!--Pour chaque Quiz-->
 @foreach (var qz in Model)
 {
-     var tempId = qz.QuizId; <!---->
-    <ul>
-        <il>
-          <a>@qz.QuizId</a>
-          <ul>
-                <!--Pour chaque question de la base de données, voir si son id est dans le current quizquestion-->
-                @foreach(var q in qz.Quizquestions)
-                {
-                    if (q.QuizId == tempId)
-                    {
-                        <li>@q.Question</li>
-                    }
-                }
-          </ul>
-        </il>
-    </ul>
-    
+     <li>
+         <a asp-action="SeeQuiz" asp-controller="Home" asp-route-quizId="@qz.QuizId">Quiz @qz.QuizId</a>
+     </li>
 }
 </ul>
+<br />
+<a asp-action="NewQuiz" asp-controller="Home" class="border-1">Create a new Quiz</a>

@@ -23,6 +23,8 @@ public partial class ProjetWsContext : DbContext
 
     public virtual DbSet<Quizquestion> Quizquestions { get; set; }
 
+    public virtual DbSet<Totalquiz> Totalquizzes { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseMySql("name=ConnectionStrings:MySqlConnection", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));
 
@@ -97,6 +99,16 @@ public partial class ProjetWsContext : DbContext
             entity.HasOne(d => d.Quiz).WithMany(p => p.Quizquestions)
                 .HasForeignKey(d => d.QuizId)
                 .HasConstraintName("quizquestions_ibfk_1");
+        });
+
+        modelBuilder.Entity<Totalquiz>(entity =>
+        {
+            entity.HasKey(e => e.MyRowId).HasName("PRIMARY");
+
+            entity.ToTable("totalquiz");
+
+            entity.Property(e => e.MyRowId).HasColumnName("my_row_id");
+            entity.Property(e => e.totalquiz).HasColumnName("totalquiz");
         });
 
         OnModelCreatingPartial(modelBuilder);
