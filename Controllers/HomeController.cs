@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Plugins;
 using Projet_Web_Serveur.Models;
 using System.Diagnostics;
@@ -104,11 +105,21 @@ namespace Projet_Web_Serveur.Controllers
 
         public IActionResult SeeQuiz(int quizId)
         {
-            var questionQuiz = context.Quizquestions.Where(e => e.QuizId == quizId);
-            var choix = context.Choixdereponses;
-            ViewBag.choixdereponse = choix;
-            ViewBag.currentQuizId = questionQuiz.FirstOrDefault().QuizId;
-            return View(questionQuiz);
+            /*var quizzez = context.Quizzes.ToList();
+            var question = context.Questions.ToList();
+            var choix = context.Choixdereponses.ToList();
+
+            var viewModel = new QuizView
+            {
+                Quizzes = quizzez,
+                Questions = question,
+                Choix = choix,
+            };
+
+            ViewBag.id = quizId;*/
+            var quiz = context.Quizzes.Find(quizId);
+
+            return View(quiz);
         }
     }
 }

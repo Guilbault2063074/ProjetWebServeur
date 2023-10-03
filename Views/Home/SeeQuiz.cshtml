@@ -1,21 +1,18 @@
-﻿@model IEnumerable<Quizquestion>
+﻿@model Quiz
 
 <div>
 
-    <h1>Quiz number : @ViewBag.currentQuizId</h1>
+    <h1>Quiz number : @Model.QuizId</h1>
 
-    @foreach (var question in Model)
+    @foreach (var qq in Model.Quizquestions)
     {
-        <h3>@question.Question</h3>
-        <ul>
-            @foreach (var choix in ViewBag.choixdereponse)
+        <h3>@qq.Question.Question1</h3>
+         <ul>
+            @foreach (var e in qq.Question.Choixdereponses)
             {
-                @if (choix.questionID == question.QuestionId)
-                {
-                    <li>choix</li>
-                }
+                <li style="list-style:none" class="list-inline-item px-2" >@e.Choix</li>
             }
-        </ul>
+        </ul> 
         <br />
     }
 </div>
