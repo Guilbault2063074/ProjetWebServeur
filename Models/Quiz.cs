@@ -13,5 +13,9 @@ public partial class Quiz
 
     public int? HardQuestionCount { get; set; }
 
+    public string? Email { get; set; }
+
+    public virtual User? EmailNavigation { get; set; }
+
     public virtual ICollection<Quizquestion> Quizquestions { get; set; } = new List<Quizquestion>();
 }

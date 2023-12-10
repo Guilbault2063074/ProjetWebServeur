@@ -75,9 +75,15 @@ public partial class ProjetWsContext : DbContext
 
             entity.ToTable("quiz");
 
+            entity.HasIndex(e => e.Email, "Email");
+
             entity.Property(e => e.QuizId)
                 .ValueGeneratedNever()
                 .HasColumnName("QuizID");
+
+            entity.HasOne(d => d.EmailNavigation).WithMany(p => p.Quizzes)
+                .HasForeignKey(d => d.Email)
+                .HasConstraintName("quiz_ibfk_1");
         });
 
         modelBuilder.Entity<Quizquestion>(entity =>
