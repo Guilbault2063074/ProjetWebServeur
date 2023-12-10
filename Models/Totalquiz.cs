@@ -7,5 +7,5 @@ public partial class Totalquiz
 {
     public ulong MyRowId { get; set; }
 
-    public uint totalquiz { get; set; }
+    public uint Totalquiz1 { get; set; }
 }

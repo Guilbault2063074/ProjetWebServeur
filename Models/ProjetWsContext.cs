@@ -25,6 +25,8 @@ public partial class ProjetWsContext : DbContext
 
     public virtual DbSet<Totalquiz> Totalquizzes { get; set; }
 
+    public virtual DbSet<User> Users { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseMySql("name=ConnectionStrings:MySqlConnection", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));
 
@@ -108,7 +110,16 @@ public partial class ProjetWsContext : DbContext
             entity.ToTable("totalquiz");
 
             entity.Property(e => e.MyRowId).HasColumnName("my_row_id");
-            entity.Property(e => e.totalquiz).HasColumnName("totalquiz");
+            entity.Property(e => e.Totalquiz1).HasColumnName("totalquiz");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Email).HasName("PRIMARY");
+
+            entity.ToTable("users");
+
+            entity.Property(e => e.Username).HasMaxLength(255);
         });
 
         OnModelCreatingPartial(modelBuilder);
