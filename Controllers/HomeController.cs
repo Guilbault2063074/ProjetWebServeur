@@ -30,7 +30,7 @@ namespace Projet_Web_Serveur.Controllers
         public IActionResult AddQuiz(string choix1, string choix2, string choix3)
         {
             var totalquiz = context.Totalquizzes.FirstOrDefault();
-            int quizId = (int)totalquiz.totalquiz;
+            int quizId = (int)totalquiz.Totalquiz1;
 
             int nbQuestionFacile = Convert.ToInt32(choix1);
             int nbQuestionsMedium = Convert.ToInt32(choix2);
@@ -96,7 +96,7 @@ namespace Projet_Web_Serveur.Controllers
 
             context.Quizzes.Add(quiz);
 
-            totalquiz.totalquiz = (uint)(quizId + 1);
+            totalquiz.Totalquiz1 = (uint)(quizId + 1);
             context.Update<Totalquiz>(totalquiz);
             context.SaveChanges();
 
