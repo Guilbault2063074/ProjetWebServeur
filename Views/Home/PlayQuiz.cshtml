@@ -1,0 +1,28 @@
+﻿@model SubmitQuizView
+
+<div>
+
+    <h1>Quiz number : @Model.currentQuiz.QuizId</h1>
+
+    <form asp-action="SubmitAnswer" method="post">
+        @foreach (var qq in Model.currentQuiz.Quizquestions)
+        {
+            <h3>@qq.Question.Question1</h3>
+            <ul>
+                @foreach (var e in qq.Question.Choixdereponses)
+                {
+                    <li style="list-style:none" class="list-inline-item px-2">
+                        <label>
+                            <input type="hidden" name="UserAnswers[@qq.QuestionId].questionId" value="@e.QuestionId" />
+                            <input type="radio" name="UserAnswers[@qq.QuestionId].choixId" value="@e.ChoixId" />
+                            @e.Choix
+                        </label>
+                    </li>
+                }
+            </ul>
+        }
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+

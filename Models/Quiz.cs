@@ -17,5 +17,7 @@ public partial class Quiz
 
     public virtual User? EmailNavigation { get; set; }
 
+    public virtual ICollection<Previousattempt> Previousattempts { get; set; } = new List<Previousattempt>();
+
     public virtual ICollection<Quizquestion> Quizquestions { get; set; } = new List<Quizquestion>();
 }

@@ -11,5 +11,7 @@ public partial class Choixdereponse
 
     public string? Choix { get; set; }
 
+    public bool? IsCorrectAnswer { get; set; }
+
     public virtual Question? Question { get; set; }
 }

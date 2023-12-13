@@ -17,6 +17,8 @@ public partial class ProjetWsContext : DbContext
 
     public virtual DbSet<Choixdereponse> Choixdereponses { get; set; }
 
+    public virtual DbSet<Previousattempt> Previousattempts { get; set; }
+
     public virtual DbSet<Question> Questions { get; set; }
 
     public virtual DbSet<Quiz> Quizzes { get; set; }
@@ -53,6 +55,26 @@ public partial class ProjetWsContext : DbContext
             entity.HasOne(d => d.Question).WithMany(p => p.Choixdereponses)
                 .HasForeignKey(d => d.QuestionId)
                 .HasConstraintName("choixdereponse_ibfk_1");
+        });
+
+        modelBuilder.Entity<Previousattempt>(entity =>
+        {
+            entity.HasKey(e => e.MyRowId).HasName("PRIMARY");
+
+            entity.ToTable("previousattempts");
+
+            entity.HasIndex(e => e.QuizId, "QuizID");
+
+            entity.Property(e => e.MyRowId).HasColumnName("my_row_id");
+            entity.Property(e => e.AnswerSheet).HasColumnType("text");
+            entity.Property(e => e.Email).HasMaxLength(255);
+            entity.Property(e => e.QuizId).HasColumnName("QuizID");
+            entity.Property(e => e.Score).HasColumnName("score");
+            entity.Property(e => e.Total).HasColumnName("total");
+
+            entity.HasOne(d => d.Quiz).WithMany(p => p.Previousattempts)
+                .HasForeignKey(d => d.QuizId)
+                .HasConstraintName("previousattempts_ibfk_1");
         });
 
         modelBuilder.Entity<Question>(entity =>

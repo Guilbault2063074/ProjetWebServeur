@@ -16,16 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\willi\source\repos\Projet_Web_Serveur
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/willi/source/repos/Projet_Web_Serveur/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/willi/source/repos/Projet_Web_Serveur/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/willi/source/repos/Projet_Web_Serveur/Views/Home/NewQuiz.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdRdWl6LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/willi/source/repos/Projet_Web_Serveur/Views/Home/SeeQuiz.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWVRdWl6LmNzaHRtbA==
+[C:/Users/willi/source/repos/Projet_Web_Serveur/Views/Home/PlayQuiz.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQbGF5UXVpei5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/willi/source/repos/Projet_Web_Serveur/Views/Home/SeeQuizzes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWVRdWl6emVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/willi/source/repos/Projet_Web_Serveur/Views/Home/StartScreen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdGFydFNjcmVlbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/willi/source/repos/Projet_Web_Serveur/Views/Shared/Error.cshtml]

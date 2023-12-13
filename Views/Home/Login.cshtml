@@ -1,0 +1,22 @@
+﻿<h1>Please Login</h1>
+
+<h2>Voici les info des user pour le test</h2>
+<p>Username: abc ,Email: abc@gmail.con</p>
+<p>Username: Will,Email: will@gmail.com </p>
+<p>Username: Adiel ,Email: adiel@coolperson.com</p>
+
+<form asp-action="Login" method="post">
+	<label for="Username">Username</label>
+	<input name="username" type="text" />
+	<br />
+	<label for="Email">Email</label>
+	<input name="email" type="email" />
+	<br />
+	<input type="submit" value="Login"/>
+</form>
+
+<br />
+@if (ViewBag.Fail == true)
+{
+	<p>Data is wrong</p>
+}

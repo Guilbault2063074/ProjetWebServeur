@@ -12,6 +12,10 @@ Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"))
 .UseLazyLoadingProxies()
 );
 
+builder.Services.AddSession();
+builder.Services.AddMemoryCache();
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,8 +33,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseSession();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();

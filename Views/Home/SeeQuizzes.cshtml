@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Quiz>
+
+<ul>
+<!--Pour chaque Quiz-->
+@foreach (var qz in Model)
+{
+     <li>
+         <a asp-action="PlayQuiz" asp-controller="Home" asp-route-quizId="@qz.QuizId">Quiz @qz.QuizId</a>
+     </li>
+}
+</ul>
