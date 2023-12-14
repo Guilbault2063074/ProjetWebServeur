@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Previousattempt>
+
+<h1>Reviser les quiz que vous avez déja remplis</h1>
+<ul>
+    <!--Pour chaque Quiz-->
+    @foreach (var qz in Model)
+    {
+        <li>
+            <a asp-action="ReviseQuiz" asp-controller="Home" asp-route-quizId="@qz.QuizId">Quiz @qz.QuizId</a>
+        </li>
+    }
+</ul>
+
+<br />
+<button type="button" onclick="location.href='@Url.Action("StartScreen", "Home")'">Go Back to Start Screen</button>

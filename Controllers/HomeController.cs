@@ -199,58 +199,37 @@ namespace Projet_Web_Serveur.Controllers
             }
 
             context.SaveChanges();
-            // Get the answers -done
-            // Check answers by getting userchoixid.iscorrect dans un foreach -done
-            /*foreach (var answer in answers)
-            {
-                var reponse = context.Choixdereponses.Where(c => c.ChoixId == answer.ChoixId).FirstOrDefault();
-                //everytime answers is correct var result+1 et puet importe si bon ou non total+1
-                if(reponse != null)
-                {
-                    if (reponse.IsCorrectAnswer == true)
-                    {
-                        score++;
-                        total++;
-                    }
-                    else
-                    {
-                        total++;
-                    }
-                }
-                
-            }
+            return RedirectToAction("SeePastQuizzes");
+        }
 
-            var serializedAnswerSheet = JsonConvert.SerializeObject(answers);
-            //create a new answersheet object
-            //serialize answersheet
-            //sent email,quizID,score, answersheet to database
-            var quizResult = new Previousattempt
+        public IActionResult SeePastQuizzes()
+        {
+            var userEmail = session.GetString("UserEmail");
+            var quizzez = context.Previousattempts.Where(q => q.Email == userEmail).ToList();
+            return View(quizzez);
+        }
+
+        public IActionResult ReviseQuiz(int quizId)
+        {
+            //find the right quiz
+            var quiz = context.Previousattempts.Where(p => p.QuizId == quizId).FirstOrDefault();
+            var completeQuiz = context.Quizzes.Find(quizId);
+            //Get the data from the right quiz
+            var answerSheet = JsonConvert.DeserializeObject<Dictionary<int, UserAnswer>>(quiz.AnswerSheet);
+            List<int> userAnswers = answerSheet.Values.Select(answer => answer.ChoixId).ToList();
+            //Deserialize the answerSheet
+
+            //Create an object or model for the data???
+
+            //Sent to view
+            var revisedQuiz = new RevisedQuizView
             {
-                Email = email,
-                QuizId = currentQuiz,
-                AnswerSheet = serializedAnswerSheet,
-                Score = score,
-                Total = total
+                currentRevisedQuiz = completeQuiz,
+                userAnswerId = userAnswers,
+                score = quiz.Score,
+                total = quiz.Total,
             };
-
-            var attemptAlreadyDone = context.Previousattempts.Where(p => p.Email == email && p.QuizId == currentQuiz).FirstOrDefault();
-            
-            if(attemptAlreadyDone != null )
-            {
-                attemptAlreadyDone.AnswerSheet = quizResult.AnswerSheet;
-                attemptAlreadyDone.Score = quizResult.Score;
-                attemptAlreadyDone.Total = quizResult.Total;
-
-                context.Update(attemptAlreadyDone);
-            }
-            else
-            {
-                context.Add(quizResult);
-            }
-
-            context.SaveChanges();*/
-
-            return RedirectToAction("SeeQuizzes");
+            return View(revisedQuiz);
         }
     }
 }

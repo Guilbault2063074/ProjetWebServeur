@@ -1,0 +1,59 @@
+﻿@model RevisedQuizView
+
+<div>
+    <h1>Quiz number : @Model.currentRevisedQuiz.QuizId</h1>
+
+    @foreach (var qq in Model.currentRevisedQuiz.Quizquestions)
+    {
+        <h3>@qq.Question.Question1</h3>
+        <ul>
+            @foreach (var c in qq.Question.Choixdereponses)
+            {
+                <li style="list-style:none" class="list-inline-item px-2">
+
+                    @if (Model.userAnswerId.Contains(c.ChoixId))
+                    {
+                        @if (c.IsCorrectAnswer == true)
+                        {
+                            <label style="color:green">
+                                <input type="radio" checked="checked" disabled />
+                                @c.Choix
+                            </label>
+                        }
+                        else
+                        {
+                            <label style="color:red">
+                                <input type="radio" checked="checked" disabled />
+                                @c.Choix
+                            </label>
+                        }
+                    }
+                    else
+                    {
+                        @if (c.IsCorrectAnswer == true)
+                        {
+                            <label style="color:green">
+                                <input type="radio" disabled />
+                                @c.Choix
+                            </label>
+                        }
+                        else
+                        {
+                            <label>
+                                <input type="radio" disabled />
+                                @c.Choix
+                            </label>
+                        }
+
+                    }
+
+                </li>
+            }
+        </ul>
+    }
+
+    <h2> Your score is : @Model.score/@Model.total</h2>
+
+    <br />
+    <button type="button" onclick="location.href='@Url.Action("SeePastQuizzes", "Home")'">Go Back to Past Quiz List</button>
+</div>

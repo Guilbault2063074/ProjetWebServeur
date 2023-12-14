@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Quiz>
 
+<h1>Voir vos quiz</h1>
 <ul>
 <!--Pour chaque Quiz-->
 @foreach (var qz in Model)
@@ -9,3 +10,6 @@
      </li>
 }
 </ul>
+
+<br />
+<button type="button" onclick="location.href='@Url.Action("StartScreen", "Home")'">Go Back to Start Screen</button>
